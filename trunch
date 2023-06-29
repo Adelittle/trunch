@@ -1,0 +1,9 @@
+#!/bin/bash
+
+while read -r url; do
+    while [ $(echo "$url" | grep -o '/' | wc -l) -gt 3 ]; do
+        echo "$url"
+        url="$(dirname "$url")"
+    done
+    echo "$url"
+done
